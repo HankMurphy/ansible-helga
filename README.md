@@ -1,7 +1,11 @@
 helga
-========
+=====
 
 Ansible role for Helga, THE irc bot. https://github.com/shaunduncan/helga
+
+Note: this is a fork of https://github.com/bigjust/ansible-helga that changes
+the roles for use with centos 6. It does not attempt to preserve the original
+ubuntu tasks.
 
 TODO
 ----
@@ -40,6 +44,3 @@ GPLv3
 
 Author Information
 ------------------
-
-Justin Caratzas
-bigjust@lambdaphil.es
