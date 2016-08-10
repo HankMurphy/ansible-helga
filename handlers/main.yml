@@ -1,5 +1,5 @@
 ---
-
 - name: Wake up, Helga...
-  supervisorctl: name=helga state=restarted
-  sudo: yes
+  service: name=helga state=restarted
+  become: yes
+  become_user: root

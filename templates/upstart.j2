@@ -1,0 +1,63 @@
+#!/bin/bash
+# chkconfig: 345 70 30
+# description: helga is an irc bot
+# processname: helga
+
+# Source function library.
+. /etc/init.d/functions
+
+RETVAL=0
+prog_home="{{ helga_home }}"
+prog="$prog_home/bin/helga"
+prog_settings="--settings={{ helga_home }}/bin/custom_settings.py"
+stdout_logfile="{{ helga_stdout_logfile }}"
+stderr_logfile="{{ helga_stderr_logfile }}"
+LOCKFILE=/var/lock/subsys/helga
+
+USER="{{ REMOTE_USER }}"
+
+start() {
+        echo -n "Helga Awakens: "
+        cd $prog_home
+        daemon --user $USER $prog $prog_settings >> $stdout_logfile 2>> $stderr_logfile &
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] && touch $LOCKFILE
+        return $RETVAL
+}
+
+stop() {
+        echo -n "Kill helga: "
+        killproc $prog
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] && rm -f $LOCKFILE
+        return $RETVAL
+}
+
+restart() {
+        stop
+        start
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status helga
+        RETVAL=$?
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: helga {start|stop|status|restart}"
+        exit 1
+        ;;
+esac
+exit $RETVAL

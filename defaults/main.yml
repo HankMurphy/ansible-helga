@@ -30,7 +30,7 @@ helga_default_plugins:
 helga_external_plugins: []
 
 helga_cmd_prefix: '!'
-helga_webhooks_port: 8080
+helga_webhooks_port: 8880
 helga_twitter_api_key: null
 helga_twitter_api_secret: null
 helga_twitter_oauth_token: null

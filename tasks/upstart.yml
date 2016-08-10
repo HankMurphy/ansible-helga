@@ -1,0 +1,16 @@
+- name: Prepare log directories
+  file: state=directory dest={{ helga_log_dir }} owner={{ REMOTE_USER }}
+
+- name: startup script
+  template: >
+    src=upstart.j2
+    dest=/etc/init.d/helga
+    owner=root group=root mode=0755
+  become: yes
+  become_user: root
+  notify: Wake up, Helga...
+
+- name: Add helga to boot
+  service: >
+      name="helga"
+      enabled=yes
