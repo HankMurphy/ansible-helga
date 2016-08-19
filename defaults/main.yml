@@ -1,6 +1,6 @@
 ---
 
-# Global Vars
+# Default Vars
 virtualenv_bin: /usr/local/bin/virtualenv
 
 # defaults for ansible-helga
