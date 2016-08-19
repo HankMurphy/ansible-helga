@@ -1,7 +1,7 @@
 ---
 galaxy_info:
-  author: Hank Murphy
-  description: A role for Helga, THE irc bot, on centos
+  author: Hank Murphy, Doctor-Doom
+  description: A role for Helga, THE irc bot, on Centos / Red Hat
   company: Cybersponse Inc
   license: GPLv3
   min_ansible_version: 1.2
