@@ -15,11 +15,10 @@
   pip: name=pip
        virtualenv={{ virtualenv_bin }}
        extra_args='--upgrade'
-       virtualenv_python=python2
 
 - name: Conceive the Helga.
   pip: name=helga
-       virtualenv={{ helga_home }}
+       virtualenv={{ virtualenv_bin }}
        version={{ helga_version }}
 
 - name: Helga enhancements.
