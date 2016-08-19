@@ -44,3 +44,5 @@ GPLv3
 
 Author Information
 ------------------
+
+Hank Murphy
