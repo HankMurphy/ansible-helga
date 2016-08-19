@@ -13,7 +13,7 @@
 
 - name: Create a virtualenv with latest pip.
   pip: name=pip
-       virtualenv={{ helga_home }}
+       virtualenv={{ virtualenv_bin }}
        extra_args='--upgrade'
        virtualenv_python=python2
 
