@@ -16,6 +16,7 @@
        virtualenv={{ helga_home }}
        virtualenv_command={{ virtualenv_bin }}
        extra_args='--upgrade'
+       virtualenv_python=python2
 
 - name: Conceive the Helga.
   pip: name=helga
