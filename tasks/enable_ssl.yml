@@ -1,6 +1,6 @@
 ---
 
 - name: Install Cryptomunitions.
-  sudo: yes
+  become: yes
   yum: name={{ item }} state=present
   with_items: "{{helga_ssl_packages}}"

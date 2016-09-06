@@ -16,6 +16,15 @@ helga_operators: []
 helga_irc_channels:
   - "#bots"
 
+helga_db_host: localhost
+helga_db_port: 27017
+helga_db_name: helga
+
+# To enable DB authentication, add:
+# helga_db_auth:
+#   username: your_username
+#   password: your_password
+
 helga_timezone: 'US/Eastern'
 helga_default_plugins:
   - dubstep

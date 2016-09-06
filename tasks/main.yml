@@ -1,7 +1,7 @@
 ---
 
 - name: Create a home for Helga.
-  sudo: yes
+  become: yes
   file: path={{ helga_home }}
         owner={{ ansible_ssh_user }}
         group={{ ansible_ssh_user }}
