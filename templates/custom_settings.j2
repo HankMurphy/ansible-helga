@@ -21,6 +21,16 @@ TIMEZONE = '{{ helga_timezone }}'
 
 LOG_LEVEL = '{{ helga_log_level }}'
 
+DATABASE = {
+    'HOST': '{{ helga_db_host }}',
+    'PORT': {{ helga_db_port }},
+    'DB': '{{ helga_db_name }}',
+    {% if helga_db_auth is defined %}
+    'USERNAME': '{{ helga_db_auth.username }}',
+    'PASSWORD': '{{ helga_db_auth.password }}',
+    {% endif %}
+}
+
 ENABLED_PLUGINS = [
     {% for plugin in helga_default_plugins %}
     '{{ plugin }}',
