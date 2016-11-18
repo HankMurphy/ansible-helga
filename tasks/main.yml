@@ -18,10 +18,19 @@
        extra_args='--upgrade'
        virtualenv_python=python2
 
-- name: Conceive the Helga.
-  pip: name=helga
-       virtualenv={{ helga_home }}
-       version={{ helga_version }}
+- name: Conceive the Helga (versioned).
+  pip:
+    name: helga
+    virtualenv: "{{ helga_home }}"
+    version: "{{ helga_version }}"
+  when: helga_version is defined
+
+- name: Conceive the Helga (latest).
+  pip:
+    name: helga
+    virtualenv: "{{ helga_home }}"
+    state: latest
+  when: helga_version is not defined
 
 - name: Helga enhancements.
   pip: name={{ item.src }} state={{ item.state | default('present')}} virtualenv={{ helga_home }}
